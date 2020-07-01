@@ -1,6 +1,5 @@
 package com.example.java.thread.future;
 
-import com.luni724.thread.PriorityDemo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
