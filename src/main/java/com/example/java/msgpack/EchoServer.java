@@ -1,21 +1,18 @@
-package com.example.java.nnetty;
+package com.example.java.msgpack;
 
-import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.CharsetUtil;
-
-import java.nio.charset.Charset;
 
 /**
  * @author Liq
@@ -38,11 +35,12 @@ public class EchoServer {
                .childHandler(new ChannelInitializer<SocketChannel>() {
                    @Override
                    protected void initChannel(SocketChannel socketChannel) throws Exception {
-//                       ByteBuf deLimiter = Unpooled.copiedBuffer("$_".getBytes());
-//                       socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,deLimiter));
-                       // 定长解码器
-                       socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(20));
-                       socketChannel.pipeline().addLast(new StringDecoder());
+                       ChannelPipeline pipeline = socketChannel.pipeline();
+                       pipeline.addLast("framDecoder",new LengthFieldBasedFrameDecoder(65535,0,2,0,2));
+
+                       pipeline.addLast("msg-decoder",new MsgPackDecoder());
+                       pipeline.addLast("framEncode",new LengthFieldPrepender(2));
+                       pipeline.addLast("msg-encoder",new MsgPackEncoder());
                        socketChannel.pipeline().addLast(new EchoServerHandler());
 
                    }
@@ -62,20 +60,13 @@ public class EchoServer {
    }
 
    private class  EchoServerHandler extends ChannelHandlerAdapter{
-       int counter = 0;
+
 
        @Override
        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//           String body = (String)msg;
-//           System.out.println("this is " + ++counter + "times receice client:[" + body + "]");
-//           body += "$_";
-//           ByteBuf echo = Unpooled.copiedBuffer(body.getBytes());
-//           ctx.writeAndFlush(echo);
 
-           // 定长解码
-
-           System.out.println("receive client:" + msg);
-           ctx.writeAndFlush(Unpooled.copiedBuffer("hello", CharsetUtil.UTF_8));
+           System.out.println("server receive :" + msg);
+           ctx.writeAndFlush(msg);
        }
 
        @Override
