@@ -29,12 +29,11 @@ public class EchoClient {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
                         ChannelPipeline pipeline = socketChannel.pipeline();
-                        pipeline.addLast("framDecoder",new LengthFieldBasedFrameDecoder(65535,0,2,0,2));
-
-                        pipeline.addLast("msg-decoder",new MsgPackDecoder());
-                        pipeline.addLast("framEncode",new LengthFieldPrepender(2));
+//                        pipeline.addLast("framDecoder",new LengthFieldBasedFrameDecoder(65535,0,2,0,2));
                         pipeline.addLast("msg-encoder",new MsgPackEncoder());
-                        socketChannel.pipeline().addLast(new EchoClientHander(sendNumber));
+                        pipeline.addLast("msg-decoder",new MsgPackDecoder());
+//                        pipeline.addLast("framEncode",new LengthFieldPrepender(2));
+                        pipeline.addLast(new EchoClientHander(sendNumber));
                     }
                 });
 
@@ -51,7 +50,7 @@ public class EchoClient {
     }
 
 
-    public class EchoClientHander extends ChannelHandlerAdapter{
+    public class EchoClientHander extends ChannelInboundHandlerAdapter {
         private final int counter;
         public EchoClientHander(int counter) {
             this.counter = counter;
@@ -81,7 +80,7 @@ public class EchoClient {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             System.out.println(" client receive mes" + msg);
-            ctx.write(msg);
+//            ctx.write(msg);
         }
 
 

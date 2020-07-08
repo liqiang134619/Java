@@ -1,0 +1,12 @@
+package com.example.java.protobuf;
+
+option java_package = "com.example.java.protobuf";
+option java_outer_classname = "SubscribeReqProto";
+
+message Person {
+  required int32 subReqId = 1;
+  required string userName = 2;
+  required string productName = 3;
+  required string address = 4;
+
+}

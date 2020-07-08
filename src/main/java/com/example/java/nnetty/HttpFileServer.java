@@ -54,7 +54,7 @@ public class HttpFileServer {
     public class HttpFileServerHander extends SimpleChannelInboundHandler<FullHttpRequest> {
 
         @Override
-        protected void messageReceived(ChannelHandlerContext channelHandlerContext, FullHttpRequest request) throws Exception {
+        protected void channelRead0(ChannelHandlerContext channelHandlerContext, FullHttpRequest request) throws Exception {
             if(!request.getDecoderResult().isSuccess()) {
 
             }

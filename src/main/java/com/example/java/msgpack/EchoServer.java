@@ -36,10 +36,10 @@ public class EchoServer {
                    @Override
                    protected void initChannel(SocketChannel socketChannel) throws Exception {
                        ChannelPipeline pipeline = socketChannel.pipeline();
-                       pipeline.addLast("framDecoder",new LengthFieldBasedFrameDecoder(65535,0,2,0,2));
+//                       pipeline.addLast("framDecoder",new LengthFieldBasedFrameDecoder(65535,0,2,0,2));
 
                        pipeline.addLast("msg-decoder",new MsgPackDecoder());
-                       pipeline.addLast("framEncode",new LengthFieldPrepender(2));
+//                       pipeline.addLast("framEncode",new LengthFieldPrepender(2));
                        pipeline.addLast("msg-encoder",new MsgPackEncoder());
                        socketChannel.pipeline().addLast(new EchoServerHandler());
 
@@ -59,7 +59,7 @@ public class EchoServer {
 
    }
 
-   private class  EchoServerHandler extends ChannelHandlerAdapter{
+   private class  EchoServerHandler extends ChannelInboundHandlerAdapter {
 
 
        @Override

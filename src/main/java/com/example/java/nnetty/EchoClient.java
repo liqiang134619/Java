@@ -45,7 +45,7 @@ public class EchoClient {
     }
 
 
-    public class EchoClientHander extends ChannelHandlerAdapter{
+    public class EchoClientHander extends ChannelInboundHandlerAdapter {
         private int counter;
         static final String ECHO_REQ = "Hi,hello world Netty.$_";
         public EchoClientHander() {

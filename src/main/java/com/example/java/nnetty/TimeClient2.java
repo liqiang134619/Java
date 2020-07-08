@@ -49,7 +49,7 @@ public class TimeClient2 {
     }
 
 
-    public class TimeClientHandler extends ChannelHandlerAdapter{
+    public class TimeClientHandler extends ChannelInboundHandlerAdapter {
 
 //        private final int firstMsg;
 

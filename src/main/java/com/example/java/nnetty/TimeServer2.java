@@ -64,7 +64,7 @@ public class TimeServer2 {
     /**
      * 继承channelhandleradapter 用于处理网络时间的读写操作
      */
-    public class TimeServerHandler extends  ChannelHandlerAdapter {
+    public class TimeServerHandler extends  ChannelInboundHandlerAdapter  {
 
 
         // tcp粘包拆包

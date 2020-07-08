@@ -19,7 +19,7 @@ public class MsgPackDecoder extends MessageToMessageDecoder<ByteBuf> {
         // 新建数组
         final byte[] array;
         array = new byte[i];
-
+        System.out.println(i);
         // 写入
         byteBuf.getBytes(byteBuf.readerIndex(),array,0,i);
         MessagePack messagePack = new MessagePack();
