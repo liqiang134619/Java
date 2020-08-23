@@ -15,6 +15,8 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.CharsetUtil;
 
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.nio.charset.Charset;
 
 /**
@@ -41,7 +43,7 @@ public class EchoServer {
 //                       ByteBuf deLimiter = Unpooled.copiedBuffer("$_".getBytes());
 //                       socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,deLimiter));
                        // 定长解码器
-                       socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(20));
+//                       socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(20));
                        socketChannel.pipeline().addLast(new StringDecoder());
                        socketChannel.pipeline().addLast(new EchoServerHandler());
 
@@ -63,6 +65,12 @@ public class EchoServer {
 
    private class  EchoServerHandler extends ChannelInboundHandlerAdapter {
        int counter = 0;
+
+
+       public void connect(ChannelHandlerContext ctx, SocketAddress remoteAddress, SocketAddress localAddress, ChannelPromise promise) throws Exception {
+           InetSocketAddress is  = (InetSocketAddress) remoteAddress;
+           System.out.println(is.getAddress() + ":"+ is.getPort());
+       }
 
        @Override
        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

@@ -75,6 +75,7 @@ public class Shop {
         Random random = new Random();
         double v = calculatePrice(product);
         DisCount.Code code = DisCount.Code.values()[random.nextInt(DisCount.Code.values().length)];
+        System.out.println("---------:" + Thread.currentThread().getName());
         return String.format("%s:%.2f:%s",name,v,code);
     }
 
