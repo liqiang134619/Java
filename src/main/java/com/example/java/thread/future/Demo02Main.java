@@ -63,46 +63,7 @@ public class Demo02Main {
                 new Shop("y"),
                 new Shop("y"),
                 new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("y"),
-                new Shop("u"),
+
                 new Shop("s"),
                 new Shop("five"));
 
@@ -110,7 +71,7 @@ public class Demo02Main {
 
         ExecutorService executorService = Executors.newFixedThreadPool(40);
 
-
+//
 //        long l = System.currentTimeMillis();
 //        // 1. 多级map操作
 //        List<String> ip57s = list.stream().map(shop -> shop.getPrice2("ip57s"))
@@ -119,31 +80,46 @@ public class Demo02Main {
 //                .collect(Collectors.toList());
 //        System.out.println(ip57s);
 //        System.out.println("简单stream耗时：" +(System.currentTimeMillis() - l));
+////
 //
+//        System.out.println("======================");
 
-        System.out.println("======================");
 
 //         2.complete
-//        long l1 = System.currentTimeMillis();
-//        List<CompletableFuture<String>> ip57s1 = list.stream()
-//                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice2("ip57s"), executorService))
-//                .map(future -> future.thenApply(Quote::parse))
-//                .map(futrue -> futrue.thenCompose(quote -> CompletableFuture.supplyAsync(() -> DisCount.applyDiscount(quote), executorService)))
-//                .collect(Collectors.toList());
-//
-//        List<String> collect = ip57s1.stream().map(CompletableFuture::join).collect(Collectors.toList());
-//        System.out.println(collect);
-//        System.out.println("异步ableFutur多线程1耗时：" +(System.currentTimeMillis() - l1));
-//
-//        System.out.println("----------------");
-//
-        long l1l = System.currentTimeMillis();
-        List<CompletableFuture<String>> ip57s = list.stream()
-                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice2("ip57s"), executorService)).
-                        collect(Collectors.toList());
-        List<String> collect = ip57s.stream().map(CompletableFuture::join).collect(Collectors.toList());
+        long l1 = System.currentTimeMillis();
+        List<CompletableFuture<String>> ip57s1 = list.stream()
+                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice2("ip57s"),executorService))
+                .map(future -> future.thenApply(Quote::parse))
+                .map(futrue -> futrue.thenCompose(quote -> CompletableFuture.supplyAsync(() -> DisCount.applyDiscount(quote),executorService)))
+                .collect(Collectors.toList());
+
+        List<String> collect = ip57s1.stream().map(CompletableFuture::join).collect(Collectors.toList());
         System.out.println(collect);
-        System.out.println("异步多线2程耗时：" +(System.currentTimeMillis() - l1l));
+        System.out.println("异步ableFutur多线程1耗时：" +(System.currentTimeMillis() - l1));
+//
+        System.out.println("----------------");
+//
+//        long l1l = System.currentTimeMillis();
+//        List<CompletableFuture<String>> ip57s = list.stream()
+//                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice2("ip57s"), executorService)).
+//                        collect(Collectors.toList());
+//        List<String> collect = ip57s.stream().map(CompletableFuture::join).collect(Collectors.toList());
+//
+//        // 2.completableFuture
+        long lll = System.currentTimeMillis();
+        Stream<CompletableFuture<Quote>> ip57s2 = list.stream()
+                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice2("ip57s"), executorService))
+                .map(future -> future.thenApply(Quote::parse));
+
+
+        List<CompletableFuture<String>> ip57s11 = ip57s2
+                .map(futrue -> futrue.thenCompose(quote -> CompletableFuture.supplyAsync(() -> DisCount.applyDiscount(quote), executorService)))
+                .collect(Collectors.toList());
+
+        List<String> collect1 = ip57s11.stream().map(CompletableFuture::join).collect(Collectors.toList());
+
+        System.out.println(collect1);
+        System.out.println("异步多线2程耗时：" +(System.currentTimeMillis() - lll));
 
         System.out.println("----------------");
 
@@ -157,13 +133,13 @@ public class Demo02Main {
 //        System.out.println(ip57s1);
 //        System.out.println("异步多线3程耗时：" +(System.currentTimeMillis() - l2));
 
-        System.out.println("----------------");
-
-        long timeMillis = System.currentTimeMillis();
-        List<String> ip57s2 = list.parallelStream().map(shop -> shop.getPrice2("ip57s")).collect(Collectors.toList());
-        System.out.println("异步多线4程耗时:  " + (System.currentTimeMillis() - timeMillis));
-        System.out.println(ip57s2);
-
+//        System.out.println("----------------");
+//
+//        long timeMillis = System.currentTimeMillis();
+//        List<String> ip57s2 = list.parallelStream().map(shop -> shop.getPrice2("ip57s")).collect(Collectors.toList());
+//        System.out.println("异步多线4程耗时:  " + (System.currentTimeMillis() - timeMillis));
+//        System.out.println(ip57s2);
+//
 
 //
 //        long l2 = System.currentTimeMillis();

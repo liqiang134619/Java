@@ -59,11 +59,7 @@ public class TimeClient2 {
 
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//            ByteBuf buf = (ByteBuf) msg;
-//            byte[] bytes = new byte[buf.readableBytes()];
-//            buf.readBytes(bytes);
             String body  = (String)msg;
-//            String body = new String(bytes, StandardCharsets.UTF_8);
             System.out.println("now is :" + body + "the counter is "+ ++counter);
 
         }

@@ -14,8 +14,8 @@ public final class SubscribeRespProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface PersonOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.example.java.protobuf.Person)
+  public interface SubscribeRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.example.java.protobuf.SubscribeResp)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -58,18 +58,18 @@ public final class SubscribeRespProto {
         getDescBytes();
   }
   /**
-   * Protobuf type {@code com.example.java.protobuf.Person}
+   * Protobuf type {@code com.example.java.protobuf.SubscribeResp}
    */
-  public static final class Person extends
+  public static final class SubscribeResp extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.example.java.protobuf.Person)
-      PersonOrBuilder {
+      // @@protoc_insertion_point(message_implements:com.example.java.protobuf.SubscribeResp)
+      SubscribeRespOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Person.newBuilder() to construct.
-    private Person(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use SubscribeResp.newBuilder() to construct.
+    private SubscribeResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Person() {
+    private SubscribeResp() {
       desc_ = "";
     }
 
@@ -77,7 +77,7 @@ public final class SubscribeRespProto {
     @SuppressWarnings({"unused"})
     protected Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Person();
+      return new SubscribeResp();
     }
 
     @Override
@@ -85,7 +85,7 @@ public final class SubscribeRespProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Person(
+    private SubscribeResp(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -141,15 +141,15 @@ public final class SubscribeRespProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return SubscribeRespProto.internal_static_com_example_java_protobuf_Person_descriptor;
+      return SubscribeRespProto.internal_static_com_example_java_protobuf_SubscribeResp_descriptor;
     }
 
     @Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return SubscribeRespProto.internal_static_com_example_java_protobuf_Person_fieldAccessorTable
+      return SubscribeRespProto.internal_static_com_example_java_protobuf_SubscribeResp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Person.class, Builder.class);
+              SubscribeResp.class, Builder.class);
     }
 
     private int bitField0_;
@@ -304,10 +304,10 @@ public final class SubscribeRespProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Person)) {
+      if (!(obj instanceof SubscribeResp)) {
         return super.equals(obj);
       }
-      Person other = (Person) obj;
+      SubscribeResp other = (SubscribeResp) obj;
 
       if (hasSubReqId() != other.hasSubReqId()) return false;
       if (hasSubReqId()) {
@@ -352,69 +352,69 @@ public final class SubscribeRespProto {
       return hash;
     }
 
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Person parseFrom(byte[] data)
+    public static SubscribeResp parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Person parseFrom(java.io.InputStream input)
+    public static SubscribeResp parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Person parseDelimitedFrom(java.io.InputStream input)
+    public static SubscribeResp parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Person parseDelimitedFrom(
+    public static SubscribeResp parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Person parseFrom(
+    public static SubscribeResp parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -427,7 +427,7 @@ public final class SubscribeRespProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Person prototype) {
+    public static Builder newBuilder(SubscribeResp prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @Override
@@ -438,37 +438,37 @@ public final class SubscribeRespProto {
 
     @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code com.example.java.protobuf.Person}
+     * Protobuf type {@code com.example.java.protobuf.SubscribeResp}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.example.java.protobuf.Person)
-        PersonOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.example.java.protobuf.SubscribeResp)
+        SubscribeRespOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return SubscribeRespProto.internal_static_com_example_java_protobuf_Person_descriptor;
+        return SubscribeRespProto.internal_static_com_example_java_protobuf_SubscribeResp_descriptor;
       }
 
       @Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return SubscribeRespProto.internal_static_com_example_java_protobuf_Person_fieldAccessorTable
+        return SubscribeRespProto.internal_static_com_example_java_protobuf_SubscribeResp_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Person.class, Builder.class);
+                SubscribeResp.class, Builder.class);
       }
 
-      // Construct using com.example.java.protobuf.SubscribeRespProto.Person.newBuilder()
+      // Construct using com.example.java.protobuf.SubscribeRespProto.SubscribeResp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -492,17 +492,17 @@ public final class SubscribeRespProto {
       @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return SubscribeRespProto.internal_static_com_example_java_protobuf_Person_descriptor;
+        return SubscribeRespProto.internal_static_com_example_java_protobuf_SubscribeResp_descriptor;
       }
 
       @Override
-      public Person getDefaultInstanceForType() {
-        return Person.getDefaultInstance();
+      public SubscribeResp getDefaultInstanceForType() {
+        return SubscribeResp.getDefaultInstance();
       }
 
       @Override
-      public Person build() {
-        Person result = buildPartial();
+      public SubscribeResp build() {
+        SubscribeResp result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -510,8 +510,8 @@ public final class SubscribeRespProto {
       }
 
       @Override
-      public Person buildPartial() {
-        Person result = new Person(this);
+      public SubscribeResp buildPartial() {
+        SubscribeResp result = new SubscribeResp(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -565,16 +565,16 @@ public final class SubscribeRespProto {
       }
       @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Person) {
-          return mergeFrom((Person)other);
+        if (other instanceof SubscribeResp) {
+          return mergeFrom((SubscribeResp)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Person other) {
-        if (other == Person.getDefaultInstance()) return this;
+      public Builder mergeFrom(SubscribeResp other) {
+        if (other == SubscribeResp.getDefaultInstance()) return this;
         if (other.hasSubReqId()) {
           setSubReqId(other.getSubReqId());
         }
@@ -610,11 +610,11 @@ public final class SubscribeRespProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Person parsedMessage = null;
+        SubscribeResp parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Person) e.getUnfinishedMessage();
+          parsedMessage = (SubscribeResp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -799,51 +799,51 @@ public final class SubscribeRespProto {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.example.java.protobuf.Person)
+      // @@protoc_insertion_point(builder_scope:com.example.java.protobuf.SubscribeResp)
     }
 
-    // @@protoc_insertion_point(class_scope:com.example.java.protobuf.Person)
-    private static final Person DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.example.java.protobuf.SubscribeResp)
+    private static final SubscribeResp DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Person();
+      DEFAULT_INSTANCE = new SubscribeResp();
     }
 
-    public static Person getDefaultInstance() {
+    public static SubscribeResp getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @Deprecated public static final com.google.protobuf.Parser<Person>
-        PARSER = new com.google.protobuf.AbstractParser<Person>() {
+    @Deprecated public static final com.google.protobuf.Parser<SubscribeResp>
+        PARSER = new com.google.protobuf.AbstractParser<SubscribeResp>() {
       @Override
-      public Person parsePartialFrom(
+      public SubscribeResp parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Person(input, extensionRegistry);
+        return new SubscribeResp(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Person> parser() {
+    public static com.google.protobuf.Parser<SubscribeResp> parser() {
       return PARSER;
     }
 
     @Override
-    public com.google.protobuf.Parser<Person> getParserForType() {
+    public com.google.protobuf.Parser<SubscribeResp> getParserForType() {
       return PARSER;
     }
 
     @Override
-    public Person getDefaultInstanceForType() {
+    public SubscribeResp getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_example_java_protobuf_Person_descriptor;
+    internal_static_com_example_java_protobuf_SubscribeResp_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_example_java_protobuf_Person_fieldAccessorTable;
+      internal_static_com_example_java_protobuf_SubscribeResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -854,19 +854,20 @@ public final class SubscribeRespProto {
   static {
     String[] descriptorData = {
       "\n\023SubscribeResp.proto\022\031com.example.java." +
-      "protobuf\":\n\006Person\022\020\n\010subReqId\030\001 \002(\005\022\020\n\010" +
-      "respCode\030\002 \002(\005\022\014\n\004desc\030\003 \002(\tB/\n\031com.exam" +
-      "ple.java.protobufB\022SubscribeRespProto"
+      "protobuf\"A\n\rSubscribeResp\022\020\n\010subReqId\030\001 " +
+      "\002(\005\022\020\n\010respCode\030\002 \002(\005\022\014\n\004desc\030\003 \002(\tB/\n\031c" +
+      "om.example.java.protobufB\022SubscribeRespP" +
+      "roto"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_com_example_java_protobuf_Person_descriptor =
+    internal_static_com_example_java_protobuf_SubscribeResp_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_example_java_protobuf_Person_fieldAccessorTable = new
+    internal_static_com_example_java_protobuf_SubscribeResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_example_java_protobuf_Person_descriptor,
+        internal_static_com_example_java_protobuf_SubscribeResp_descriptor,
         new String[] { "SubReqId", "RespCode", "Desc", });
   }
 
