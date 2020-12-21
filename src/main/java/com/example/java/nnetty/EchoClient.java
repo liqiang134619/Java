@@ -66,7 +66,7 @@ public class EchoClient {
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-            ctx.flush();
+            ctx.close();
         }
 
         @Override

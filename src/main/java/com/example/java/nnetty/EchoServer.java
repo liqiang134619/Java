@@ -40,12 +40,23 @@ public class EchoServer {
                .childHandler(new ChannelInitializer<SocketChannel>() {
                    @Override
                    protected void initChannel(SocketChannel socketChannel) throws Exception {
+<<<<<<< HEAD
                         // 分隔符解码器
+=======
+
+>>>>>>> 79e96c68867e3f094741507e73d92520cd1c2400
 //                       ByteBuf deLimiter = Unpooled.copiedBuffer("$_".getBytes());
 //                       socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,deLimiter));
                        // 定长解码器
 //                       socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(20));
                        socketChannel.pipeline().addLast(new StringDecoder());
+
+                       ByteBuf deLimiter = Unpooled.copiedBuffer("$_".getBytes());
+                       socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,deLimiter));
+//                        定长解码器
+//                       socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(20));
+//                       socketChannel.pipeline().addLast(new StringDecoder());
+
                        socketChannel.pipeline().addLast(new EchoServerHandler());
 
                    }
@@ -73,18 +84,17 @@ public class EchoServer {
            System.out.println(is.getAddress() + ":"+ is.getPort());
        }
 
+
        @Override
        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//           String body = (String)msg;
-//           System.out.println("this is " + ++counter + "times receice client:[" + body + "]");
-//           body += "$_";
-//           ByteBuf echo = Unpooled.copiedBuffer(body.getBytes());
-//           ctx.writeAndFlush(echo);
+           String body = (String)msg;
+           System.out.println("this is " + ++counter + "times receice client:[" + body + "]");
+           body += "$_";
+           ByteBuf echo = Unpooled.copiedBuffer(body.getBytes());
+           ctx.writeAndFlush(echo);
 
            // 定长解码
-
            System.out.println("receive client:" + msg);
-           ctx.writeAndFlush(Unpooled.copiedBuffer("hello", CharsetUtil.UTF_8));
        }
 
        @Override
