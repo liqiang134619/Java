@@ -20,9 +20,10 @@ public class NettyMessageEncoder extends MessageToMessageEncoder<NettyMessage> {
                           NettyMessage msg, List<Object> list) throws Exception {
 
         if(msg == null || msg.getHeader() == null) {
-            throw  new Exception("mes is null");
+            throw  new Exception("msg is null");
         }
 
+        // 缓冲区
         ByteBuf sendBuf = Unpooled.buffer();
 
         sendBuf.writeInt(msg.getHeader().getCrcCode());
@@ -33,9 +34,12 @@ public class NettyMessageEncoder extends MessageToMessageEncoder<NettyMessage> {
         sendBuf.writeInt(msg.getHeader().getAttachment().size());
 
         if(msg.getBody() != null) {
-            //
+            // 编码
+
         } else  {
+            // body为空了
             sendBuf.writeInt(0);
+            // 在指定的索引位置设置 int 值
             sendBuf.setInt(4,sendBuf.readableBytes());
         }
 

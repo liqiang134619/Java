@@ -28,16 +28,12 @@ public class Demo01 {
 
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(content1);
-//        System.out.println(m.find());
+//        System.out.println(m.find());0.
 //        System.out.println(m.group());
 
-        Student student = new Student();
-        student.setIdCard("41132919960320311X");
 
-        System.out.println(!(student.getIdCard().equalsIgnoreCase(m.group())));
+        System.out.println("xxxxxxxxxxxxxxxxx");
 
-        if(!(student.getIdCard().equalsIgnoreCase(m.group()))) {
-            System.out.println("xxxx");
-        }
+
     }
 }
