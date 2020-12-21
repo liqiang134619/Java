@@ -84,7 +84,7 @@ public class TimeServer {
 
             // readableBytes获取缓冲区的字节数
             byte[] req = new byte[buf.readableBytes()];
-            // 读入字节数组
+            // 把缓冲区的字节数据读入字节数组
             buf.readBytes(req);
 
 

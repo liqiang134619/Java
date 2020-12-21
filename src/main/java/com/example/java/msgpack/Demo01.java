@@ -1,7 +1,6 @@
 package com.example.java.msgpack;
 
 import org.msgpack.MessagePack;
-import org.msgpack.template.Template;
 import org.msgpack.template.Templates;
 
 import java.io.IOException;

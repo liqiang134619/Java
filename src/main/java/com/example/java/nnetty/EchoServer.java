@@ -40,6 +40,7 @@ public class EchoServer {
                .childHandler(new ChannelInitializer<SocketChannel>() {
                    @Override
                    protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        // 分隔符解码器
 //                       ByteBuf deLimiter = Unpooled.copiedBuffer("$_".getBytes());
 //                       socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,deLimiter));
                        // 定长解码器
