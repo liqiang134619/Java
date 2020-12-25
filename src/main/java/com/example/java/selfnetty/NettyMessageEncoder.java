@@ -5,6 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -14,6 +15,12 @@ import java.util.List;
  */
 public class NettyMessageEncoder extends MessageToMessageEncoder<NettyMessage> {
 
+
+    private MarshallingEncoder marshallingEncoder;
+
+    public NettyMessageEncoder() throws IOException {
+        this.marshallingEncoder = new MarshallingEncoder();
+    }
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext,
@@ -31,11 +38,10 @@ public class NettyMessageEncoder extends MessageToMessageEncoder<NettyMessage> {
         sendBuf.writeLong(msg.getHeader().getSessionId());
         sendBuf.writeByte(msg.getHeader().getPriority());
         sendBuf.writeByte(msg.getHeader().getType());
-        sendBuf.writeInt(msg.getHeader().getAttachment().size());
 
         if(msg.getBody() != null) {
             // 编码
-
+            marshallingEncoder.encode(msg.getBody(),sendBuf);
         } else  {
             // body为空了
             sendBuf.writeInt(0);
