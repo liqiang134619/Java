@@ -74,9 +74,9 @@ public class MarshallingCodeCFactory {
                 .getProvidedMarshallerFactory("serial");
         final MarshallingConfiguration configuration = new MarshallingConfiguration();
         configuration.setVersion(5);
-        final Unmarshaller unmarshaller = marshallerFactory
+        return marshallerFactory
                 .createUnmarshaller(configuration);
-        return unmarshaller;
     }
+
 
 }
